@@ -1,5 +1,5 @@
 # go-find-function-name
-A tool for filename from given filename and row number.
+A tool for function name of go code from given filename and row number.
 
 ## Install
 ```bash
