@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "github.com/shuhei0818/go-find-function-name/internal/command"
 
 func main() {
-	fmt.Printf("%#v\n", "not implemented")
+	command.Exec()
 }
