@@ -18,7 +18,7 @@ var (
 )
 
 func usage() {
-	fmt.Fprintf(os.Stderr, "usage: goffn [flags] path\n")
+	fmt.Fprintf(os.Stderr, "usage: goffn [-l line number] [-s input file]\n")
 	flag.PrintDefaults()
 }
 
@@ -37,7 +37,7 @@ func exec() int {
 	)
 
 	if err := anal.Do(); err != nil {
-		fmt.Fprintf(os.Stderr, "failed to execute `run`: %s\n", err.Error())
+		fmt.Fprintf(os.Stderr, "failed to execute : %s\n", err.Error())
 		return 1
 	}
 

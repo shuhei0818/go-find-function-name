@@ -28,7 +28,7 @@ func New(name string, line int) *Analyzer {
 }
 
 // Do analyzes the source code and outputs the function name at the specified line number.
-// The source would be written into w.
+// The source would be written into Output.
 func (a *Analyzer) Do() error {
 
 	fset := token.NewFileSet()
