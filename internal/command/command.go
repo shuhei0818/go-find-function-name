@@ -13,12 +13,17 @@ func Exec() {
 }
 
 var (
-	input = flag.String("s", "", "input file")
-	line  = flag.Int("l", 0, "line number containing the target function")
+	line        = flag.Int("l", 0, "line number containing the target function")
+	showVersion = flag.Bool("v", false, "Print the version")
+)
+
+var (
+	name    = "goffn"
+	version = "0.2.0"
 )
 
 func usage() {
-	fmt.Fprintf(os.Stderr, "usage: goffn [-l line number] [-s input file]\n")
+	fmt.Fprintf(os.Stderr, "usage: goffn [-l line_number] filename\n")
 	flag.PrintDefaults()
 }
 
@@ -26,13 +31,20 @@ func exec() int {
 	flag.Usage = usage
 	flag.Parse()
 
-	if len(*input) == 0 {
+	if *showVersion {
+		fmt.Printf("%s v%s\n", name, version)
+		return 0
+	}
+
+	input := flag.Arg(0)
+	if input == "" {
 		fmt.Fprintln(os.Stderr, "must specify filename")
+		flag.Usage()
 		return 1
 	}
 
 	anal := analysis.New(
-		*input,
+		input,
 		*line,
 	)
 

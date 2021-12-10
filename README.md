@@ -8,5 +8,5 @@ $ go install github.com/shuhei0818/go-find-function-name/cmd/goffn@latest
 
 ## Usage
 ```bash
-$ goffn [-l line number] [-s input file]
+$ goffn [-l line_number] filename
 ```
